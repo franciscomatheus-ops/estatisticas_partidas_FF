@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @media print{
+            button{
+                display: none;
+            }
+            body{
+                margin: 1px;
+            }
+        }
+        @media (max-width: 480px){
+            body, html{
+                height: 100%;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        .res input{
+            width: 90%;
+        }
+        .res{
+            width: 100%;
+        }
+        table{
+            width: auto;
+            max-width: 100%;
+        }
+        table, tr, td, th{
+            border: solid 1px;
+            border-collapse: collapse;
+        }
+        .tbl-1{
+            width: 100%;
+        }
+        input{
+            border: none;
+            outline: none;
+        }
+        .tbl-1 tr input{
+            width: 90%;
+        }
+        .dados{
+            font-size: small;
+        }
+        .tiro{
+            border: none;
+        }
+        .por{
+            border: solid 1px;
+            border-left: solid ;
+            border-bottom: solid;
+        }
+        .orcamento{
+            border: solid 1px;
+            margin-bottom: 1px;
+            display: flex;
+            justify-content: space-around;
+        }
+        .orcamento span{
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="orcamento">
+        <span>Orçamento</span>
+    </div>
+    <div>
+        <table class="tbl-1">
+            <tr>
+                <th>Cliente :</th>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <th>Endereço :</th>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <th>Telefone :</th>
+                <td><input type="tel"></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table class="res">
+            <tr>
+                <th class="dados">Comodos</th>
+                <th class="dados">Larg</th>
+                <th class="dados">Comp</th>
+                <th class="dados"> Mtr² </th>
+                <th class="dados">Material</th>
+                <th class="dados">Preço</th>
+                <th class="dados">Valor</th>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text" id="larg1"  onblur="m1()"></td>
+                <td><input type="text" id="comp1" onblur="m1()"></td>
+                <td id="metro1"></td>
+                <td><input type="text"></td>
+                <td><input type="text" id="preco1" onblur="s1(); total()"></td>
+                <td id="valor1">R$0,00</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text" id="larg2"  onblur="m2()"></td>
+                <td><input type="text" id="comp2" onblur="m2()"></td>
+                <td id="metro2"></td>
+                <td><input type="text"></td>
+                <td><input type="text" id="preco2" onblur="s2(); total()"></td>
+                <td id="valor2">R$0,00</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text" id="larg3"  onblur="m3()"></td>
+                <td><input type="text" id="comp3" onblur="m3()"></td>
+                <td id="metro3"></td>
+                <td><input type="text"></td>
+                <td><input type="text" id="preco3" onblur="s3(); total()"></td>
+                <td id="valor3">R$0,00</td>
+            </tr>
+            <tr>
+                <td><input type="text"></td>
+                <td><input type="text" id="larg4"  onblur="m4()"></td>
+                <td><input type="text" id="comp4" onblur="m4()"></td>
+                <td id="metro4"></td>
+                <td><input type="text"></td>
+                <td><input type="text" id="preco4" onblur="s4(); total()"></td>
+                <td id="valor4">R$0,00</td>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>Total R$</th>
+                <th id="resultado">0,00</th>
+            </tr>
+            </table>
+
+            <div>
+                <button onclick="print()">Salvar</button>
+            </div>
+    </div>
+    <script>
+        function m1() {
+            var larg = document.getElementById('larg1').value;
+            var comp = document.getElementById('comp1').value;
+            var metro = larg * comp;
+            document.getElementById('metro1').innerHTML = metro.toFixed(2);
+        }
+        
+        function m2() {
+            var larg = document.getElementById('larg2').value;
+            var comp = document.getElementById('comp2').value;
+            var metro = larg * comp;
+            document.getElementById('metro2').innerHTML = metro.toFixed(2);
+        }
+        
+        function m3() {
+            var larg = document.getElementById('larg3').value;
+            var comp = document.getElementById('comp3').value;
+            var metro = larg * comp;
+            document.getElementById('metro3').innerHTML = metro.toFixed(2);
+        }
+        
+        function m4() {
+            var larg = document.getElementById('larg4').value;
+            var comp = document.getElementById('comp4').value;
+            var metro = larg * comp;
+            document.getElementById('metro4').innerHTML = metro.toFixed(2);
+        }
+        
+        function s1() {
+            var preco = document.getElementById('preco1').value;
+            var valor = preco * document.getElementById('metro1').innerHTML;
+            document.getElementById('valor1').innerHTML = "R$" + valor.toFixed(2);
+        }
+        
+        function s2() {
+            var preco = document.getElementById('preco2').value;
+            var valor = preco * document.getElementById('metro2').innerHTML;
+            document.getElementById('valor2').innerHTML = "R$" + valor.toFixed(2);
+        }
+        
+        function s3() {
+            var preco = document.getElementById('preco3').value;
+            var valor = preco * document.getElementById('metro3').innerHTML;
+            document.getElementById('valor3').innerHTML = "R$" + valor.toFixed(2);
+        }
+        
+        function s4() {
+            var preco = document.getElementById('preco4').value;
+            var valor = preco * document.getElementById('metro4').innerHTML;
+            document.getElementById('valor4').innerHTML = "R$" + valor.toFixed(2);
+        }
+        function total(){
+            var vlr1 = parseFloat(document.getElementById('valor1').innerHTML.replace("R$", ""));
+            var vlr2 = parseFloat(document.getElementById('valor2').innerHTML.replace("R$", ""));
+            var vlr3 = parseFloat(document.getElementById('valor3').innerHTML.replace("R$", ""));
+            var vlr4 = parseFloat(document.getElementById('valor4').innerHTML.replace("R$", ""));
+
+            var res = vlr1 + vlr2 + vlr3 + vlr4;
+
+            document.getElementById('resultado').innerHTML = "R$" + res.toFixed(2) ;
+        }
+    </script>       
+</body>
+</html>
