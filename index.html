@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tabela</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* @media (max-width: 480px){
+            body{
+                background-color: gray;
+            }
+        } */
+        html, body{
+            height: 100% !important;
+        }
+        body{
+            display: grid;
+            place-items: center;
+            font-family: "Open Sans", sans-serif;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        th, td{
+            border: solid gray 1px;
+        }
+
+        th{
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        td{
+            text-align: center;
+        }
+        input{
+            width: 45px;
+            height: 100% !important;
+            outline: none;
+            border: none;
+            padding-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Nick</th>
+                <th colspan="4">Abates</th>
+                <th colspan="4">Dano</th>
+                <th colspan="2">Média</th>
+            </tr>
+            <tr>
+                <th>#1</th>
+                <th>#2</th>
+                <th>#3</th>
+                <th>#4</th>
+                <th>#1</th>
+                <th>#2</th>
+                <th>#3</th>
+                <th>#4</th>
+                <th>Kill</th>
+                <th>Dano</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Sujo</th>
+                <td><input type="text" id="sujo_01" value="0" onfocus="ver(this)" onblur="ver_out(this); res_sj()"></td>
+                <td><input type="text" id="sujo_02" value="0" onclick="ver(this)" onblur="ver_out(this); res_sj()"></td>
+                <td><input type="text" id="sujo_03" value="0" onclick="ver(this)" onblur="ver_out(this); res_sj()"></td>
+                <td><input type="text" id="sujo_04" value="0" onclick="ver(this)" onblur="ver_out(this); res_sj()"></td>
+                <td><input type="text" id="sujo_05" value="0" onclick="ver(this)" onblur="ver_out(this); res_sj()"></td>
+                <td><input type="text" id="sujo_06" value="0" onclick="ver(this)" onblur="ver_out(this); res_sj()"></td>
+                <td><input type="text" id="sujo_07" value="0" onclick="ver(this)" onblur="ver_out(this); res_sj()"></td>
+                <td><input type="text" id="sujo_08" value="0" onclick="ver(this)" onblur="ver_out(this); res_sj()"></td>
+                <td id="mk_sj">0</td>
+                <td id="md_sj">0</td>
+            </tr>
+            <tr>
+                <th>B!gode</th>
+                <td><input type="text" id="bigode_01" value="0" onclick="ver(this)" onblur="ver_out(this); res_bd()"></td>
+                <td><input type="text" id="bigode_02" value="0" onclick="ver(this)" onblur="ver_out(this); res_bd()"></td>
+                <td><input type="text" id="bigode_03" value="0" onclick="ver(this)" onblur="ver_out(this); res_bd()"></td>
+                <td><input type="text" id="bigode_04" value="0" onclick="ver(this)" onblur="ver_out(this); res_bd()"></td>
+                <td><input type="text" id="bigode_05" value="0" onclick="ver(this)" onblur="ver_out(this); res_bd()"></td>
+                <td><input type="text" id="bigode_06" value="0" onclick="ver(this)" onblur="ver_out(this); res_bd()"></td>
+                <td><input type="text" id="bigode_07" value="0" onclick="ver(this)" onblur="ver_out(this); res_bd()"></td>
+                <td><input type="text" id="bigode_08" value="0" onclick="ver(this)" onblur="ver_out(this); res_bd()"></td>
+                <td id="mk_bd">0</td>
+                <td id="md_bd">0</td>
+            </tr>
+            <tr>
+                <th>Braga</th>
+                <td><input type="text" id="braga_01" value="0" onclick="ver(this)" onblur="ver_out(this); res_bg()"></td>
+                <td><input type="text" id="braga_02" value="0" onclick="ver(this)" onblur="ver_out(this); res_bg()"></td>
+                <td><input type="text" id="braga_03" value="0" onclick="ver(this)" onblur="ver_out(this); res_bg()"></td>
+                <td><input type="text" id="braga_04" value="0" onclick="ver(this)" onblur="ver_out(this); res_bg()"></td>
+                <td><input type="text" id="braga_05" value="0" onclick="ver(this)" onblur="ver_out(this); res_bg()"></td>
+                <td><input type="text" id="braga_06" value="0" onclick="ver(this)" onblur="ver_out(this); res_bg()"></td>
+                <td><input type="text" id="braga_07" value="0" onclick="ver(this)" onblur="ver_out(this); res_bg()"></td>
+                <td><input type="text" id="braga_08" value="0" onclick="ver(this)" onblur="ver_out(this); res_bg()"></td>
+                <td id="mk_bg">0</td>
+                <td id="md_bg">0</td>
+            </tr>
+            <tr>
+                <th>Risoka</th>
+                <td><input type="text" id="risoka_01" value="0" onclick="ver(this)" onblur="ver_out(this); res_rk()"></td>
+                <td><input type="text" id="risoka_02" value="0" onclick="ver(this)" onblur="ver_out(this); res_rk()"></td>
+                <td><input type="text" id="risoka_03" value="0" onclick="ver(this)" onblur="ver_out(this); res_rk()"></td>
+                <td><input type="text" id="risoka_04" value="0" onclick="ver(this)" onblur="ver_out(this); res_rk()"></td>
+                <td><input type="text" id="risoka_05" value="0" onclick="ver(this)" onblur="ver_out(this); res_rk()"></td>
+                <td><input type="text" id="risoka_06" value="0" onclick="ver(this)" onblur="ver_out(this); res_rk()"></td>
+                <td><input type="text" id="risoka_07" value="0" onclick="ver(this)" onblur="ver_out(this); res_rk()"></td>
+                <td><input type="text" id="risoka_08" value="0" onclick="ver(this)" onblur="ver_out(this); res_rk()"></td>
+                <td id="mk_rk">0</td>
+                <td id="md_rk">0</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function ver(ip){
+            if(ip.value == 0){
+                ip.value = '';
+            }
+        }
+        function ver_out(ip_out){
+            if(ip_out.value == ''){
+                ip_out.value = 0;
+            }
+        }
+        function res_sj(){
+            // media de abates
+            var k1 = parseFloat(document.getElementById('sujo_01').value);
+            var k2 = parseFloat(document.getElementById('sujo_02').value);
+            var k3 = parseFloat(document.getElementById('sujo_03').value);
+            var k4 = parseFloat(document.getElementById('sujo_04').value);
+            var kill = k1 + k2 + k3 + k4;
+            document.getElementById('mk_sj').innerHTML = kill / 4;
+            // media de dano
+            var d1 = parseFloat(document.getElementById('sujo_05').value);
+            var d2 = parseFloat(document.getElementById('sujo_06').value);
+            var d3 = parseFloat(document.getElementById('sujo_07').value);
+            var d4 = parseFloat(document.getElementById('sujo_08').value);
+            var dano = d1 + d2 + d3 + d4;
+            document.getElementById('md_sj').innerHTML = dano / 4;
+        }
+        function res_bd(){
+            // media de abates
+            var k1 = parseFloat(document.getElementById('bigode_01').value);
+            var k2 = parseFloat(document.getElementById('bigode_02').value);
+            var k3 = parseFloat(document.getElementById('bigode_03').value);
+            var k4 = parseFloat(document.getElementById('bigode_04').value);
+            var kill = k1 + k2 + k3 + k4;
+            document.getElementById('mk_bd').innerHTML = kill / 4;
+            // media de dano
+            var d1 = parseFloat(document.getElementById('bigode_05').value);
+            var d2 = parseFloat(document.getElementById('bigode_06').value);
+            var d3 = parseFloat(document.getElementById('bigode_07').value);
+            var d4 = parseFloat(document.getElementById('bigode_08').value);
+            var dano = d1 + d2 + d3 + d4;
+            document.getElementById('md_bd').innerHTML = dano / 4;
+        }
+        function res_bg(){
+            // media de abates
+            var k1 = parseFloat(document.getElementById('braga_01').value);
+            var k2 = parseFloat(document.getElementById('braga_02').value);
+            var k3 = parseFloat(document.getElementById('braga_03').value);
+            var k4 = parseFloat(document.getElementById('braga_04').value);
+            var kill = k1 + k2 + k3 + k4;
+            document.getElementById('mk_bg').innerHTML = kill / 4;
+            // media de dano
+            var d1 = parseFloat(document.getElementById('braga_05').value);
+            var d2 = parseFloat(document.getElementById('braga_06').value);
+            var d3 = parseFloat(document.getElementById('braga_07').value);
+            var d4 = parseFloat(document.getElementById('braga_08').value);
+            var dano = d1 + d2 + d3 + d4;
+            document.getElementById('md_bg').innerHTML = dano / 4;
+        }
+        function res_rk(){
+            // media de abates
+            var k1 = parseFloat(document.getElementById('risoka_01').value);
+            var k2 = parseFloat(document.getElementById('risoka_02').value);
+            var k3 = parseFloat(document.getElementById('risoka_03').value);
+            var k4 = parseFloat(document.getElementById('risoka_04').value);
+            var kill = k1 + k2 + k3 + k4;
+            document.getElementById('mk_rk').innerHTML = kill / 4;
+            // media de dano
+            var d1 = parseFloat(document.getElementById('risoka_05').value);
+            var d2 = parseFloat(document.getElementById('risoka_06').value);
+            var d3 = parseFloat(document.getElementById('risoka_07').value);
+            var d4 = parseFloat(document.getElementById('risoka_08').value);
+            var dano = d1 + d2 + d3 + d4;
+            document.getElementById('md_rk').innerHTML = dano / 4;
+        }
+    </script>
+</body>
+</html>
